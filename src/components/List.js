@@ -4,19 +4,17 @@ import Task from './Task'
 
 class List extends Component {
 
-    state = {
-        todos: [
-            { value: 'Clean the kitchen', done: false },
-            { value: 'Wash the car', done: true }
-        ]
-    }
-
     render() {
         return(
             <div className="List">
-            {this.state.todos.map((todo, index) => {
+            {this.props.todos.map((todo, index) => {
                 return (
-                    <Task key={index}/>
+                    <Task 
+                    key={index}
+                    index={index}
+                    handleClick={this.props.handleClick}
+                    todo={todo}
+                    />
                 )
             })}
             </div>
